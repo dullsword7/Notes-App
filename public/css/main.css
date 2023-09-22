@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     .home {
         background:
             url('../img/human-1.svg') left bottom no-repeat,
@@ -77,17 +77,17 @@ h1, h2, h3, h4, h5, h6 {
             var(--background-color);
         ;
     }
-}
+} */
 
 .home-title::before {
-    content: url('../images/stars.svg');
+    /* content: url('../images/stars.svg'); */
     position: absolute;
     left: -50px;
     top: -30px;
 }
 
 .home-title::after {
-    content: url('../images/stars.svg');
+    /* content: url('../images/stars.svg'); */
     position: absolute;
     right: -50px;
     bottom: -30px;
