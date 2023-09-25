@@ -1,57 +1,60 @@
+const Note = require('../models/Notes');
+const mongoose = require('mongoose');
 
 /**
  * GET /
  * Dashboard
  */
 
-exports.dashboard = async (req, res) => {
-    const locals = {
-        title: 'Dashboard',
-        description: 'Free Notes App'
-    }
-
-    res.render('dashboard/index.ejs', {
-        locals,
-        layout: '../views/layouts/dashboard'
-    })
-}
 // exports.dashboard = async (req, res) => {
+//     const locals = {
+//         title: 'Dashboard',
+//         description: 'Free Notes App'
+//     }
 
-//   let perPage = 12;
-//   let page = req.query.page || 1;
+//     res.render('dashboard/index.ejs', {
+//         userName: req.user.firstName,
+//         locals,
+//         layout: '../views/layouts/dashboard'
+//     })
+// }
+exports.dashboard = async (req, res) => {
 
-//   const locals = {
-//     title: "Dashboard",
-//     description: "Free NodeJS Notes App.",
-//   };
+  let perPage = 12;
+  let page = req.query.page || 1;
 
-//   try {
-//     // Mongoose "^7.0.0 Update
-//     const notes = await Note.aggregate([
-//       { $sort: { updatedAt: -1 } },
-//       { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
-//       {
-//         $project: {
-//           title: { $substr: ["$title", 0, 30] },
-//           body: { $substr: ["$body", 0, 100] },
-//         },
-//       },
-//     ])
-//     .skip(perPage * page - perPage)
-//     .limit(perPage)
-//     .exec();
+  const locals = {
+    title: "Dashboard",
+    description: "Free NodeJS Notes App.",
+  };
 
-//     const count = await Note.count();
+  try {
+    // Mongoose "^7.0.0 Update
+    const notes = await Note.aggregate([
+      { $sort: { updatedAt: -1 } },
+      { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
+      {
+        $project: {
+          title: { $substr: ["$title", 0, 30] },
+          body: { $substr: ["$body", 0, 100] },
+        },
+      },
+    ])
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .exec();
 
-//     res.render('dashboard/index', {
-//       userName: req.user.firstName,
-//       locals,
-//       notes,
-//       layout: "../views/layouts/dashboard",
-//       current: page,
-//       pages: Math.ceil(count / perPage)
-//     });
-//    } catch (error) {
-//     console.log(error);
-//   }
-// };
+    const count = await Note.count();
+
+    res.render('dashboard/index', {
+      userName: req.user.firstName,
+      locals,
+      notes,
+      layout: "../views/layouts/dashboard",
+      current: page,
+      pages: Math.ceil(count / perPage)
+    });
+   } catch (error) {
+    console.log(error);
+  }
+};
