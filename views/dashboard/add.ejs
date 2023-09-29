@@ -3,7 +3,7 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                     <li class="breadcrumb-item active">
                         Add Note
                     </li>
@@ -17,16 +17,16 @@
     </div>
 
     <form action="/dashboard/add" method="POST" class="position-relative">
-        <div class="form-group mb-4 position-absolute" style="left: 1px; top: 1px; right: 1px;">
+        <div class="form-group mb-4 position-absolute" style="left:1px; top:1px; right:1px;">
             <input type="text" class="form-control fw-bold border-0 fs-4" id="title" name="title" placeholder="Title" required>
         </div>
 
         <div class="form-group mb-4">
-            <textarea class="form-control pt-5 fs-4" id="body" name="body" placeholder="Take a note..." rows="12" required></textarea>
+            <textarea required class="form-control pt-5 fs-4" id="body" name="body" placeholder="Take a note..." rows="12"></textarea>
         </div>
 
         <div class="form-group">
-            <button type="submite" class="btn btn-primary btn-lg">+ Add Note</button>
+            <button type="submit" class="btn btn-primary btn-lg">+ Add Note</button>
         </div>
     </form>
 </div>

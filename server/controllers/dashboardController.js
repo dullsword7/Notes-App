@@ -68,7 +68,7 @@ exports.dashboardViewNote= async(req, res) => {
   const note = await Note.findById({ _id: req.params.id }).where({ user: req.user.id }).lean();
 
   if (note) {
-    res.render('dashboard/view-note', {
+    res.render('dashboard/view-notes', {
       noteID: req.params.id,
       note,
       layout: '../views/layouts/dashboard'
