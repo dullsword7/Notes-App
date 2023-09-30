@@ -68,16 +68,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* @media (min-width: 1200px) {
+@media (min-width: 1200px) {
     .home {
         background:
-            url('../img/human-1.svg') left bottom no-repeat,
-            url('../img/human-1.svg') right bottom no-repeat,
-            url('../img/noise.svg') left top repeat,
+            url('../img/Republicans.svg') left 50% no-repeat,
+            url('../img/Democrat.svg') right 50% no-repeat,
             var(--background-color);
+            background-size: 30%;
         ;
     }
-} */
+}
 
 .home-title::before {
     /* content: url('../images/stars.svg'); */
