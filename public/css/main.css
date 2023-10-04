@@ -1,6 +1,6 @@
 :root {
-    --background-color: #ffc700;
-    --bs-primary-rgb: #12296c;
+    --background-color: #ca4f4f;
+    --bs-primary-rgb: #1c3277;
 }
 
 body {
@@ -31,8 +31,8 @@ h1, h2, h3, h4, h5, h6 {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--bs-primary-rgb);
   --bs-btn-border-color: var(--bs-primary-rgb);
-  --bs-btn-hover-color: #0043a8;
-  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-color: #ffed4d;
+  --bs-btn-hover-bg: #0043a8;
   --bs-btn-hover-border-color: #0043a8;
   --bs-btn-focus-shadow-rgb: 49,132,253;
   --bs-btn-active-color: #fff;
@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1200px) {
     .home {
         background:
+            linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
             url('../img/Republicans.svg') left 50% no-repeat,
             url('../img/Democrat.svg') right 50% no-repeat,
             var(--background-color);
@@ -91,4 +92,8 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     right: -50px;
     bottom: -30px;
+}
+
+.card-body {
+    background-color: #cac380;
 }
