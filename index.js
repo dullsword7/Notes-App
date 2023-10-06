@@ -27,8 +27,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-// Connect to Database
-connectDB();
 
 // Static Files
 app.use(express.static('public'));
@@ -39,15 +37,18 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 // Routes
-app.use('/', require('./server/routes/auth'));
+app.use('/', require('./server/routes/auth.js'));
 app.use('/', require('./server/routes/index'));
-app.use('/', require('./server/routes/dashboard'));
+app.use('/', require('./server/routes/dashboard.js'));
 
 // Handle 404, must be last route in file
 app.get('*', (req, res) => {
     res.status(404).render('404');
 })
 
-app.listen(port, () => {
-    console.log(`App Listening on port ${port}`)
-});
+// Connect to Database first, then listen
+connectDB().then(() => {
+    app.listen(port, () => {
+        console.log(`App Listening on port ${port}`)
+    });
+})
