@@ -10,11 +10,20 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK_URL
   },
   async function(accessToken, refreshToken, profile, done) {
+
+    var lName = "";
+    if (profile.name.familyName == undefined) {
+      lName = "last";
+    }
+    else {
+      lName = profile.name.familyName;
+    }
+
     const newUser = {
       googleId: profile.id,
       displayName: profile.displayName,
       firstName: profile.name.givenName,
-      lastName: profile.name.familyName,
+      lastName: lName,
       profileImage: profile.photos[0].value,
     }
 

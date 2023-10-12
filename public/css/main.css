@@ -1,6 +1,6 @@
 :root {
-    --background-color: #ca4f4f;
-    --bs-primary-rgb: #1c3277;
+    --background-color: #d3a97c;
+    --bs-primary-rgb: #672222;
 }
 
 body {
@@ -72,8 +72,8 @@ h1, h2, h3, h4, h5, h6 {
     .home {
         background:
             linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
-            url('../img/Republicans.svg') left 50% no-repeat,
-            url('../img/Democrat.svg') right 50% no-repeat,
+            /* url('../img/Republicans.svg') left 50% no-repeat,
+            url('../img/Democrat.svg') right 50% no-repeat, */
             var(--background-color);
             background-size: 30%;
         ;
